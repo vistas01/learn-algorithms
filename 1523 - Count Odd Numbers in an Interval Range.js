@@ -30,9 +30,3 @@ var countOdds = function(low, high) {
     if(high % 2 === 1 && low % 2 === 1) res += 1;
     return res / 2;
 }
-
-/* fastest solution
-function hammingWeight(n) {
-    return Array.from(n.toString(2)).filter(digit => digit === "1").length;
-}
-*/
