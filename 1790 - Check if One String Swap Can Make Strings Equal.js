@@ -3,17 +3,17 @@
  * @param {string} s2
  * @return {boolean}
  */
-// var areAlmostEqual = function(s1, s2) {
-//     let diff = [];
-//     for(let i = 0; i < s1.length; i++){
-//         if(s1[i] !== s2[i]) diff.push({index: i, value: s1[i], ref: s2[i]});
-//     }
-//     if(diff.length === 0) return true;
-//     if(diff.length === 2){
-//         if(s1[diff[0].index] === s2[diff[1].index] && s1[diff[1].index] === s2[diff[0].index]) return true;
-//     }
-//     return false;
-// };
+var areAlmostEqual = function(s1, s2) {
+    let diff = [];
+    for(let i = 0; i < s1.length; i++){
+        if(s1[i] !== s2[i]) diff.push({index: i, value: s1[i], ref: s2[i]});
+    }
+    if(diff.length === 0) return true;
+    if(diff.length === 2){
+        if(s1[diff[0].index] === s2[diff[1].index] && s1[diff[1].index] === s2[diff[0].index]) return true;
+    }
+    return false;
+};
 
 
 
