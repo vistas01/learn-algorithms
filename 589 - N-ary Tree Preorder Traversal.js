@@ -2,6 +2,9 @@
  * Given the root of an n-ary tree, return the preorder traversal of its nodes' values.
 
 Nary-Tree input serialization is represented in their level order traversal. Each group of children is separated by the null value (See examples)
+
+ 
+
  */
 /**
  * // Definition for a Node.
@@ -30,7 +33,7 @@ var preorder = function(root) {
 
 /* faster solution
 var preorder = function(root) {
-    
+    `
     const res = []
 
     const traverse = (node) => {
