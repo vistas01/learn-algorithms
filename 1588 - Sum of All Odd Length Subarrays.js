@@ -12,8 +12,10 @@ var sumOddLengthSubarrays = function (arr) {
     }
     let res = [];
     if (arr.length === 0) return 0;
-    for (let i = 1; i < arr.length; i += 2) {
-        res.push(subArr(i, arr))
+    for (let i = 1; i < arr.length + 1; i++) {
+        if (i % 2 !== 0)
+            res.push(subArr(i, arr))
     }
-    return res;
+    console.log(res)
+    return res.reduce((acc, cur) => acc.concat(cur)).reduce((acc, cur) => acc.concat(cur)).reduce((acc, cur) => acc += cur);
 };

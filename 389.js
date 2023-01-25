@@ -20,12 +20,12 @@ var findTheDifference = function (s, t) {
 var findTheDifference = function (s, t) {
     let map = new Map();
     for (let char of s) {
-        if (!map.has(char)) map.set(char, 1);
-        else map.set(char, map.get(char) + 1);
+        if (!map.has(char)) map.set(char, { count: 1 });
+        else map.get(char).count++;
     }
     for (let char of t) {
-        if (!map.has(char) || map.get(char) === 0) return char;
-        map.set(char, map.get(char) - 1);
+        if (!map.has(char) || map.get(char).count === 0) return char;
+        map.get(char).count--;
     }
 };
 /**
@@ -49,24 +49,24 @@ var findTheDifference = function (s, t) {
 
 
 
-/**
- * @param {string} s
- * @param {string} t
- * @return {character}
- */
-var findTheDifference = function (s, t) {
-    let ms = {},
-        mt = {};
+    /**
+     * @param {string} s
+     * @param {string} t
+     * @return {character}
+     */
+    var findTheDifference = function (s, t) {
+        let ms = {},
+            mt = {};
 
-    for (let i = 0; i < t.length; i++) {
-        if (s[i])
-            ms[s[i]] = ms[s[i]] ? ms[s[i]] + 1 : 1;
-        mt[t[i]] = mt[t[i]] ? mt[t[i]] + 1 : 1;
-    }
+        for (let i = 0; i < t.length; i++) {
+            if (s[i])
+                ms[s[i]] = ms[s[i]] ? ms[s[i]] + 1 : 1;
+            mt[t[i]] = mt[t[i]] ? mt[t[i]] + 1 : 1;
+        }
 
-    for (let [k, v] of Object.entries(mt)) {
-        if (!ms[k] && mt[k] || mt[k] !== ms[k]) return k;
-    }
-};
+        for (let [k, v] of Object.entries(mt)) {
+            if (!ms[k] && mt[k] || mt[k] !== ms[k]) return k;
+        }
+    };
 
 };
