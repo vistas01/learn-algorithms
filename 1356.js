@@ -24,3 +24,33 @@ var sortByBits = function (arr) {
     .sort((a, b) => a.value - b.value)
     .map((el) => el.key);
 };
+
+/**
+ * @param {number[]} arr
+ * @return {number[]}
+ */
+var sortByBits = function (arr) {
+  let res = [];
+  arr.forEach((el) => {
+    res.push({ key: el, value: el.toString(2).split("1").length - 1 });
+  });
+  return res
+    .sort((a, b) => a.key - b.key)
+    .sort((a, b) => a.value - b.value)
+    .map((el) => el.key);
+};
+
+/**
+ * @param {number[]} arr
+ * @return {number[]}
+ */
+var sortByBits = (arr) => arr.sort((a, b) => countBit(a) - countBit(b) || a - b);
+
+const countBit = (number) => {
+  let amountOfBits = 0;
+  while (number) {
+    amountOfBits += number & 1;
+    number >>= 1;
+  }
+  return amountOfBits;
+};
