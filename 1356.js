@@ -15,11 +15,12 @@ var sortByBits = function (arr) {
       return acc;
     }, 0);
   }
-  let map = new Map();
-  arr.forEach((el) => {
-    map.set(el, count(convert(el)));
-  });
   let res = [];
-  map.forEach(value, (key) => {});
-  return res;
+  arr.forEach((el) => {
+    res.push({ key: el, value: count(convert(el)) });
+  });
+  return res
+    .sort((a, b) => a.key - b.key)
+    .sort((a, b) => a.value - b.value)
+    .map((el) => el.key);
 };
