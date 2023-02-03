@@ -14,8 +14,8 @@
 var sumOfLeftLeaves = function (root) {
   return recursive(root, 0);
   function recursive(node, acc) {
-    if (node === null) return 0;
-    if (node.left !== null) {
+    if (!node) return 0;
+    if (node.left) {
       if (node.left.left === null && node.left.right === null)
         return acc + node.left.val + recursive(node.right, acc);
     }
