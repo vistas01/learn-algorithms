@@ -14,9 +14,7 @@ MyQueue.prototype.push = function (x) {
  * @return {number}
  */
 MyQueue.prototype.pop = function () {
-  let res = this.queue[0];
-  this.queue = this.queue.slice(1);
-  return res;
+  return this.queue.shift();
 };
 
 /**
@@ -30,7 +28,7 @@ MyQueue.prototype.peek = function () {
  * @return {boolean}
  */
 MyQueue.prototype.empty = function () {
-  return this.queue.length === 0;
+  return !this.queue.length;
 };
 
 /**
