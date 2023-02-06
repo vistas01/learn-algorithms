@@ -24,3 +24,21 @@ var isAnagram = function (s, t) {
   }
   return true;
 };
+
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function (s, t) {
+  let map = new Map();
+  for (char of s) {
+    map.set(char, (map.get(char) || 0) + 1);
+  }
+  for (char of t) {
+    if (!map.get(char)) return false;
+    map.set(char, map.get(char) - 1);
+    if (!map.get(char)) map.delete(char);
+  }
+  return map.size;
+};
