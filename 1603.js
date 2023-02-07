@@ -4,12 +4,7 @@
  * @param {number} small
  */
 var ParkingSystem = function (big, medium, small) {
-  this.countBig = 0;
-  this.countMed = 0;
-  this.countSma = 0;
-  this.big = big;
-  this.medium = medium;
-  this.small = small;
+  this.slots = [undefined, big, medium, small];
 };
 
 /**
@@ -17,27 +12,7 @@ var ParkingSystem = function (big, medium, small) {
  * @return {boolean}
  */
 ParkingSystem.prototype.addCar = function (carType) {
-  if (carType === 1) {
-    if (this.countBig < this.big) {
-      this.countBig++;
-      return true;
-    }
-    return false;
-  }
-  if (carType === 2) {
-    if (this.countMed < this.medium) {
-      this.countMed++;
-      return true;
-    }
-    return false;
-  }
-  if (carType === 3) {
-    if (this.countSma < this.small) {
-      this.countSma++;
-      return true;
-    }
-    return false;
-  }
+  return 0 <= --this.slots[carType];
 };
 
 /**
