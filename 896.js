@@ -3,15 +3,11 @@
  * @return {boolean}
  */
 var isMonotonic = function (nums) {
-  let increasing = [...nums];
-  let decreasing = [...nums];
-  increasing.sort((a, b) => a - b);
-  decreasing.sort((a, b) => b - a);
-  let res = [true, true];
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== increasing[i]) res[0] = false;
-    if (nums[i] !== decreasing[i]) res[1] = false;
+  let incre = true;
+  let decre = true;
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] < nums[i - 1]) incre = false;
+    if (nums[i] > nums[i - 1]) decre = false;
   }
-  console.log(increasing, decreasing);
-  return res[0] || res[1];
+  return incre || decre;
 };
