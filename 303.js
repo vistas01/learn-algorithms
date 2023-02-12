@@ -14,7 +14,7 @@ var NumArray = function (nums) {
  * @return {number}
  */
 NumArray.prototype.sumRange = function (left, right) {
-  return this.prefixSum[right] - this.prefixSum[left !== 0 ? left - 1 : 0];
+  return this.prefixSum[right] - (this.prefixSum[left - 1] ?? 0);
 };
 
 /**
