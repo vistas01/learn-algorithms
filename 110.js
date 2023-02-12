@@ -22,4 +22,35 @@ var isBalanced = function (root) {
   };
   let res = true;
   root.set();
+  return res;
+};
+//ChatGPT
+// var isBalanced = function (root) {
+//   if (!root) return true;
+//   let leftHeight = getHeight(root.left);
+//   let rightHeight = getHeight(root.right);
+//   return (
+//     Math.abs(leftHeight - rightHeight) <= 1 &&
+//     isBalanced(root.left) &&
+//     isBalanced(root.right)
+//   );
+// };
+
+// function getHeight(node) {
+//   if (!node) return 0;
+//   return 1 + Math.max(getHeight(node.left), getHeight(node.right));
+// }
+var isBalanced = function (root) {
+  return height(root) !== -1;
+};
+
+var height = function (root) {
+  if (!root) return 0;
+
+  let left = height(root.left);
+  let right = height(root.right);
+
+  if (left === -1 || right === -1 || Math.abs(left - right) > 1) return -1;
+
+  return Math.max(left, right) + 1;
 };
