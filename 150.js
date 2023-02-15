@@ -3,13 +3,16 @@
  * @return {number}
  */
 var evalRPN = function (tokens) {
-  function rec(arr) {
-    for (let i = 0; i < arr.length; i++) {
-      if (typeof arr[i] !== "number") {
-        let cal = arr[i - 2] + arr[i] + arr[i - 1];
-        return rec(arr.splice(0, 3, eval(cal)));
+  var evalRPN = function (tokens) {
+    while (tokens.length > 1) {
+      for (let i = 0; i < tokens.length; i++) {
+        if (isNaN(Number(tokens[i]))) {
+          let cal = tokens[i - 2] + " " + tokens[i] + " " + tokens[i - 1];
+          tokens.splice(i - 2, 3, String(Math.trunc(eval(cal))));
+          break;
+        }
       }
     }
-  }
-  return rec(tokens);
+    return Number(tokens[0]);
+  };
 };
