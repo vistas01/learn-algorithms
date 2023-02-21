@@ -38,10 +38,11 @@ var multiply = function (num1, num2) {
       prod.set(key, val % 10);
     }
   });
-  let res = [...prod]
-    .map(([key, val]) => val.toString())
-    .reverse()
-    .join("")
-    .replace(/\b0+/g, "");
-  return res.length !== 0 ? res : "0";
+  return (
+    [...prod]
+      .map(([key, val]) => val.toString())
+      .reverse()
+      .join("")
+      .replace(/\b0+/g, "") || "0"
+  );
 };
